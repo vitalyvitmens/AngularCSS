@@ -6,11 +6,48 @@
     formControlName="title"
     appFocus
   />
+  <input
+    type="number"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product id"
+    formControlName="id"
+  />
+  <input
+    type="number"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product price"
+    formControlName="price"
+  />
+  <!-- <input
+    type="number"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product rating"
+    formControlName="rating"
+  /> -->
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product description"
+    formControlName="description"
+  />
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product category"
+    formControlName="category"
+  />
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Product image"
+    formControlName="image"
+  />
 
   <p
-  class="text-red-600 font-medium mb-2"
-  *ngIf="title.errors?.minlength && title.touched">
-    Please fill title field width min length. Now {{title.value.length}}
+    class="text-red-600 font-medium mb-2"
+    *ngIf="title.errors?.minlength && title.touched"
+  >
+    Please fill title field width min length. Now {{ title.value.length }}
   </p>
 
   <button type="submit" class="py-2 px-4 bg-blue-600 text-white">Create</button>

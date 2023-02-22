@@ -1,8 +1,17 @@
-<div class="py-4 px-6 border rounded flex items-center flex-col mb-2 bg-gray-100">
+<div
+  class="py-4 px-6 border rounded flex items-center flex-col mb-2 bg-gray-100"
+>
   <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2" />
   <h2 class="mb-2 text-md text-center">{{ product.title }}</h2>
   <p>
     Price: <span class="font-bold">{{ product.price | currency : "RUB" }}</span>
+  </p>
+
+  <p>
+    Rate:
+    <span [ngStyle]="{ fontWeight: 'bold' }">
+      {{ product.rating.rate | number : "1.2-4" }}
+    </span>
   </p>
 
   <button
@@ -13,13 +22,10 @@
     }"
     (click)="details = !details"
   >
-    {{ details ? "Hide" : "Show" }} Details
+    {{ details ? "Скрыть" : "Подробнее" }}
   </button>
 
   <div *ngIf="details">
     <p>{{ product.description }}</p>
-    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">
-      {{ product.rating.rate | number: '1.2-4'}}
-    </span></p>
   </div>
 </div>

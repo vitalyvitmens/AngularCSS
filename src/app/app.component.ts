@@ -1,9 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { products } from './data/products';
-import { IProduct } from './models/product';
-import { ModalService } from './services/modal.service';
-import { ProductsService } from './services/products.service';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

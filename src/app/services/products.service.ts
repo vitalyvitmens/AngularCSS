@@ -15,6 +15,7 @@ export class ProductsService {
   constructor(private http: HttpClient, private errorService: ErrorService) {}
 
   products: IProduct[] = [];
+  url: string = 'http://localhost:4200/products';
 
   getAll(): Observable<IProduct[]> {
     return this.http
@@ -39,6 +40,11 @@ export class ProductsService {
           this.products.push(prod);
         })
       );
+  }
+
+  postProduct(product: IProduct) {
+    return this.http
+      .post<IProduct>(this.url, product);
   }
 
   private errorHandler(error: HttpErrorResponse) {

@@ -19,10 +19,50 @@ export class CreateProductComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
     ]),
+    id: new FormControl<number>(0, [
+      Validators.required,
+      Validators.minLength(1),
+    ]),
+    price: new FormControl<number>(0, [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    description: new FormControl<string>('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    image: new FormControl<string>('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    category: new FormControl<string>('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   get title() {
     return this.form.controls.title as FormControl;
+  }
+
+  get id() {
+    return this.form.controls.price as FormControl;
+  }
+
+  get price() {
+    return this.form.controls.price as FormControl;
+  }
+
+  get description() {
+    return this.form.controls.description as FormControl;
+  }
+
+  get image() {
+    return this.form.controls.image as FormControl;
+  }
+
+  get category() {
+    return this.form.controls.category as FormControl;
   }
 
   ngOnInit(): void {}
@@ -32,10 +72,11 @@ export class CreateProductComponent implements OnInit {
     this.productService
       .create({
         title: this.form.value.title as string,
-        price: 13.5,
-        description: 'lorem ipsum set',
-        image: 'https://i.pravatar.cc',
-        category: 'electronic',
+        id: this.form.value.id as number,
+        price: this.form.value.price as number,
+        description: this.form.value.description as string,
+        image: this.form.value.image as string,
+        category: this.form.value.category as string,
         rating: {
           rate: 42,
           count: 1,

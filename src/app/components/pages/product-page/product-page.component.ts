@@ -12,6 +12,7 @@ export class ProductPageComponent implements OnInit {
   loading = false;
   // products$: Observable<IProduct[]>;
   term = '';
+  canEdit: boolean = false;
 
   constructor(
     public productsService: ProductsService,
@@ -20,6 +21,9 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
+
+    this.canEdit = true; // TODO: напиши логику для смены флага переменной canEdit с false на true при удачной авторизации админа
+
     // this.products$ = this.productsService.getAll().pipe(
     //   tap(() => (this.loading = false)
     //   )
