@@ -1,0 +1,101 @@
+.header__form-btn {
+    width: 210px;
+    font-size: 18px;
+    height: 46px;
+}
+
+.form-btn {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 10px;
+    background: linear-gradient(to bottom,#ffda62 0,#ebab00 100%);
+    box-shadow: 0 3px 6px rgb(246 197 54 / 41%);
+    width: 193px;
+    height: 44px;
+    margin: 7px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-width: 0;
+    outline: 0;
+}
+#toTop, button {
+    transition: all ease .3s;
+    cursor: pointer;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+body, html {
+    min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    line-height: 1.2;
+    height: 100%;
+}
+.form-btn:before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.3) 100%);
+    transform: skewX(-25deg);
+    animation: shine 3s;
+    -webkit-animation: shine 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+.header__phones {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+div {
+    display: block;
+}
