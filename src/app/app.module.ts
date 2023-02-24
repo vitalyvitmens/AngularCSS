@@ -16,6 +16,9 @@ import { AboutPageComponent } from './components/pages/about-page/about-page.com
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BasketComponent } from './components/pages/basket/basket.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,14 +33,17 @@ import { ContactsComponent } from './components/pages/contacts/contacts.componen
     AboutPageComponent,
     NavigationComponent,
     BasketComponent,
-    ContactsComponent
+    ContactsComponent,
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
