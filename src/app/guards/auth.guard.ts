@@ -40,6 +40,10 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    if (confirm('Вы уверены, что хотите выйти с admin-dashboard?')) {
+      localStorage.removeItem('token');
+      return true;
+    }
+    return false;
   }
 }
