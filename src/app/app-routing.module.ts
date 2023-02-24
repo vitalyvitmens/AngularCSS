@@ -6,6 +6,7 @@ import { AboutPageComponent } from './components/pages/about-page/about-page.com
 import { BasketComponent } from './components/pages/basket/basket.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
 import { ProductPageComponent } from './components/pages/product-page/product-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: ProductPageComponent },
@@ -13,7 +14,15 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: NotFoundComponent}
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
+    canDeactivate: [AuthGuard],
+    loadChildren: () =>
+      import('./components/admin/admin.module').then((m) => m.AdminModule),
+  },
+
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
