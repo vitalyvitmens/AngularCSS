@@ -21,7 +21,7 @@ export class ProductsService {
     return this.http
       .get<IProduct[]>('https://fakestoreapi.com/products', {
         params: new HttpParams({
-          fromObject: { limit: 10 },
+          fromObject: { limit: Infinity },
         }),
       })
       .pipe(
