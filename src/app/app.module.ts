@@ -19,6 +19,7 @@ import { ContactsComponent } from './components/pages/contacts/contacts.componen
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalculationComponent } from './components/pages/calculation/calculation.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BasketComponent,
     ContactsComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CalculationComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

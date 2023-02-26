@@ -10,7 +10,6 @@ import { ContactsDetailsComponent } from './components/contacts-details/contacts
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 
-
 @NgModule({
   declarations: [
     FooterComponent,
@@ -19,11 +18,8 @@ import { AboutComponent } from './components/about/about.component';
     ContactsComponent,
     ContactsDetailsComponent,
     AdminDashboardComponent,
-    AboutComponent
+    AboutComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule
-  ]
+  imports: [CommonModule, AdminRoutingModule],
 })
-export class AdminModule { }
+export class AdminModule {}

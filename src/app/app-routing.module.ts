@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CalculationComponent } from './components/pages/calculation/calculation.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutPageComponent } from './components/pages/about-page/about-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'calculation', component: CalculationComponent },
   {
     path: 'admin',
     canActivate: [AuthGuard],

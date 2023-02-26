@@ -36,7 +36,7 @@
   </div>
 </header>
 
-<div class="progress">
+<div class="progress" *ngIf="isLoading | async">
   <div
     class="progress-bar progress-bar-striped progress-bar-animated"
     role="progressbar"

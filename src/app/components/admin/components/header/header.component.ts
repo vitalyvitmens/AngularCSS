@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ResolveEnd, ResolveStart, Router } from '@angular/router';
+import { filter, mapTo, merge, Observable } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
+import { User } from '../../user';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,27 @@ import { AuthService } from '../../../../services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  private showLoader!: Observable<boolean>;
+  private hideLoader!: Observable<boolean>;
 
-  ngOnInit(): void {}
+  isLoading!: Observable<boolean>;
+
+  personalList!: Observable<User[]>;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.hideLoader = this.router.events.pipe(
+      filter((e) => e instanceof ResolveEnd),
+      mapTo(false)
+    );
+    this.showLoader = this.router.events.pipe(
+      filter((e) => e instanceof ResolveStart),
+      mapTo(true)
+    );
+
+    this.isLoading = merge(this.hideLoader, this.showLoader);
+  }
 
   logout() {
     this.authService.logout();
