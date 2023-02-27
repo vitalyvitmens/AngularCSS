@@ -7,6 +7,31 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
   styleUrls: ['./calculation.component.scss'],
 })
 export class CalculationComponent {
+  itemsTitles = [
+    'Category',
+    'Items',
+    'Gl Code',
+    'Amount',
+    'Sales Tax',
+    'Total',
+  ];
+
+  localItems = [
+    {
+      id: 1,
+      name: '',
+      items: [
+        {
+          id: 1,
+          name: '',
+          glCode: null,
+          amount: null,
+          salesTax: null,
+        },
+      ],
+    },
+  ];
+
   submitForm(form: NgForm) {
     console.log(form);
     console.log(form.value.product);

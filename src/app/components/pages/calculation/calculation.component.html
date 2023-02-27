@@ -1,25 +1,90 @@
 <div>
   <h3>Шаблонная форма</h3>
   <form #calcForm="ngForm" (ngSubmit)="submitForm(calcForm)">
-    <div>Продукция: <input name="product" ngModel /></div>
-    <div>Толщина: <input name="thickness" ngModel /></div>
-    <div>Цвет RAL: <input name="RAL" ngModel /></div>
-    <div>Покрытие: <input name="coating" ngModel /></div>
-    <button type="submit">Отправить</button>
-    <button (click)="calcForm.reset()">Очистить</button>
+    <div>Продукция: <input class="form-control" name="product" ngModel /></div>
+    <div>Толщина: <input class="form-control" name="thickness" ngModel /></div>
+    <div>Цвет RAL: <input class="form-control" name="RAL" ngModel /></div>
+    <div>Покрытие: <input class="form-control" name="coating" ngModel /></div>
+    <button class="btn btn-primary" type="submit">Отправить</button>
+    <button class="btn btn-danger" (click)="calcForm.reset()">Очистить</button>
   </form>
 </div>
+
 <div>
   <h3>Реактивная форма</h3>
   <form [formGroup]="calcFormReact" (ngSubmit)="submitFormReact()">
-    <div>Продукция: <input formControlName="product" /></div>
-    <div>Толщина: <input formControlName="thickness" /></div>
-    <div>Цвет RAL: <input formControlName="RAL" /></div>
-    <div *ngIf="calcFormReact.invalid" style="color: red">
-      должно быть 4 числа
+    <div>
+      Продукция: <input class="form-control" formControlName="product" />
     </div>
-    <div>Покрытие: <input formControlName="coating" /></div>
-    <button [disabled]="calcFormReact.invalid" type="submit">Отправить</button>
-    <button (click)="calcFormReact.reset()">Очистить</button>
+    <div>
+      Толщина: <input class="form-control" formControlName="thickness" />
+    </div>
+    <div>Цвет RAL: <input class="form-control" formControlName="RAL" /></div>
+    <div
+      *ngIf="calcFormReact.invalid && calcFormReact.touched"
+      style="color: red"
+    >
+      должно быть 4 числа, введено: {{ this.calcFormReact.value.RAL.length }}
+    </div>
+    <div>
+      Покрытие: <input class="form-control" formControlName="coating" />
+    </div>
+    <button
+      class="btn btn-primary"
+      [disabled]="calcFormReact.invalid"
+      type="submit"
+    >
+      Отправить
+    </button>
+    <button class="btn btn-danger" (click)="calcFormReact.reset()">
+      Очистить
+    </button>
+  </form>
+</div>
+
+<div class="col-xs-12">
+  <form #calcForm="ngForm" (ngSubmit)="submitForm(calcForm)">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Items</a>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor="let title of itemsTitles">{{ title }}</th>
+            <td><button class="btn btn-primary">Add Category</button></td>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of localItems">
+          <tr>
+            <td title="Caterory">
+              <input
+                type="text"
+                class="form-control"
+                name="cat{{ item.id }}"
+                ngModel
+              />
+            </td>
+            <td colspan="5"></td>
+            <td title="Add Item / Remove Category">
+              <button class="btn btn-primary">Add Item</button>
+              <button class="btn btn-danger">Remove Category</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </form>
 </div>
